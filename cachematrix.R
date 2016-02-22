@@ -1,3 +1,12 @@
+# developer BARIS TASKEND
+
+# [functions] #
+# [makeCacheMatrix] creates a matrix whose inverse form can be cached
+# [getinverse] --> returns the inverse of matrix
+# [setinverse] --> sets the inverse of matrix
+# [get] --> returns the original matrix
+# [set] --> sets the original matrix
+# [functions] #
 
 makeCacheMatrix <- function(x = matrix()) {
   q <- NULL
@@ -11,6 +20,16 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set = set, get = get,setInverse = setInverse,getInverse = getInverse)
 }
 
+# [functions] #
+# [cacheSolve] funct. craetes inverse of the given matrix
+# [cacheSolve] funct. checks whether the inverse of matrix has already been created or not
+# [functions] #
+
+# [description] #
+# if matrix inverse has not been created before, [cacheSolve] calculates the inverse of given matrix and return given matrix inverse
+# if matrix inverse has been created before, [cacheSolve] does not calculate the inverse of given matrix and returns given matrix
+# [description] #
+
 cacheSolve <- function(x, ...) {
   inversedMatrix <- x$getInverse()
   if(!is.null(inversedMatrix)) {
@@ -21,9 +40,10 @@ cacheSolve <- function(x, ...) {
   x$setInverse(solve(x$get()))
   inversedMatrix
 }
-#Run Time Example
+
+# Run Time Example
 # 
-# squareMatrix <- matrix( c(2, 4, 3, 1, 5, 7, 6, 1, 5), nrow=3,  ncol=3) 
+#squareMatrix <- matrix( c(2, 4, 3, 1, 5, 7, 6, 1, 5), nrow=3,  ncol=3) 
 #> squareMatrix
 #     [,1] [,2] [,3]
 #[1,]    2    1    6
